@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  echo:
+     build: .
+     ports:
+     - "5000:5000"
+#     network_mode:
+#       "host"
+#     command: "/bin/bash"
+#     stdin_open: true
+#     tty: true
+     depends_on:
+     - rediska
+
+  rediska:
+     image: redis
+     ports:
+     - "7002:6379"
